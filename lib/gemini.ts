@@ -1,4 +1,4 @@
-﻿import { GoogleGenAI } from "@google/genai";
+﻿import { GoogleGenAI, ApiError } from "@google/genai";
 import {
   ReactionResultSchema,
   type ReactionResult,
@@ -17,9 +17,115 @@ import {
   buildSiblingKindPrompt,
 } from "./prompts/lessonImport";
 
-/** Model is read from env (never hard-coded, see spec section 2). */
-function getModelName(): string {
-  return process.env.GEMINI_MODEL || "gemini-2.0-flash";
+/**
+ * Free-tier–friendly backups (AI Studio Free): Flash-Lite first (~15 RPM / ~500 RPD),
+ * then regular Flash (~5 RPM / ~20 RPD) as last resort. Quotas are per model family.
+ * @see https://ai.google.dev/gemini-api/docs/rate-limits
+ */
+const DEFAULT_MODEL_FALLBACKS = [
+  "gemini-3.5-flash-lite",
+  "gemini-3.1-flash-lite",
+  "gemini-2.5-flash-lite",
+  "gemini-2.5-flash",
+  "gemini-3.5-flash",
+  "gemini-3.8-flash",
+] as const;
+
+/**
+ * Primary `GEMINI_MODEL` then `GEMINI_MODEL_FALLBACKS` (comma-separated), then defaults.
+ * Deduped, order preserved.
+ */
+export function getModelChain(): string[] {
+  const primary = (process.env.GEMINI_MODEL || "gemini-3.5-flash-lite").trim();
+  const fromEnv = (process.env.GEMINI_MODEL_FALLBACKS || "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const seen = new Set<string>();
+  const chain: string[] = [];
+  for (const m of [primary, ...fromEnv, ...DEFAULT_MODEL_FALLBACKS]) {
+    if (!m || seen.has(m)) continue;
+    seen.add(m);
+    chain.push(m);
+  }
+  return chain;
+}
+
+function isRetryableModelError(err: unknown): boolean {
+  const status =
+    err instanceof ApiError
+      ? err.status
+      : err && typeof err === "object" && "status" in err
+        ? Number((err as { status: unknown }).status)
+        : undefined;
+
+  if (status === 429 || status === 503 || status === 404) return true;
+
+  const msg = String(
+    err instanceof Error ? err.message : err ?? ""
+  ).toLowerCase();
+
+  return (
+    msg.includes("resource_exhausted") ||
+    msg.includes("rate limit") ||
+    msg.includes("quota") ||
+    msg.includes("too many requests") ||
+    msg.includes("exhausted") ||
+    msg.includes("overloaded") ||
+    msg.includes("unavailable") ||
+    msg.includes("not found") ||
+    msg.includes("is not found") ||
+    msg.includes("not supported")
+  );
+}
+
+type GenerateJsonArgs = {
+  contents: string;
+  temperature?: number;
+};
+
+/**
+ * Call generateContent trying each model in the chain when rate-limited / quota / model missing.
+ */
+async function generateJsonWithFallback({
+  contents,
+  temperature = 0.2,
+}: GenerateJsonArgs) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("Chưa cấu hình AI (GEMINI_API_KEY).");
+  }
+  const ai = new GoogleGenAI({ apiKey });
+  const models = getModelChain();
+  let lastError: unknown;
+
+  for (let i = 0; i < models.length; i++) {
+    const model = models[i]!;
+    try {
+      return await ai.models.generateContent({
+        model,
+        contents,
+        config: {
+          responseMimeType: "application/json",
+          temperature,
+        },
+      });
+    } catch (err) {
+      lastError = err;
+      const hasNext = i < models.length - 1;
+      if (hasNext && isRetryableModelError(err)) {
+        console.warn(
+          `[gemini] model="${model}" limited/unavailable → fallback "${models[i + 1]}"`
+        );
+        continue;
+      }
+      throw err;
+    }
+  }
+
+  throw lastError instanceof Error
+    ? lastError
+    : new Error("Tất cả model Gemini đều bị limit hoặc lỗi.");
 }
 
 function buildPrompt(aId: string, bId: string): string {
@@ -71,21 +177,10 @@ export async function askGemini(
   bId: string,
   options: GeminiOptions = {}
 ): Promise<ReactionResult> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    throw new Error("Chưa cấu hình AI (GEMINI_API_KEY).");
-  }
-  const ai = new GoogleGenAI({ apiKey });
-  const contents = buildPrompt(aId, bId) + (options.retryNote ? `\n\n${options.retryNote}` : "");
+  const contents =
+    buildPrompt(aId, bId) + (options.retryNote ? `\n\n${options.retryNote}` : "");
 
-  const response = await ai.models.generateContent({
-    model: getModelName(),
-    contents,
-    config: {
-      responseMimeType: "application/json",
-      temperature: 0.2,
-    },
-  });
+  const response = await generateJsonWithFallback({ contents });
 
   const raw = response.text ?? "";
   let jsonText = raw.trim();
@@ -170,12 +265,6 @@ async function runLessonGeneration(
   kind: ContentKind,
   meta?: { grade?: LessonPayload["grade"]; subject?: LessonPayload["subject"] }
 ): Promise<LessonPayload> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    throw new Error("Chưa cấu hình AI (GEMINI_API_KEY).");
-  }
-  const ai = new GoogleGenAI({ apiKey });
-
   const parseAndValidate = (text: string): LessonPayload => {
     const parsed = LessonPayloadSchema.parse(parseJsonText(text));
     const cleaned = sanitizePayload(kind, { ...parsed, kind });
@@ -186,20 +275,14 @@ async function runLessonGeneration(
     };
   };
 
-  const response = await ai.models.generateContent({
-    model: getModelName(),
-    contents,
-    config: { responseMimeType: "application/json", temperature: 0.2 },
-  });
+  const response = await generateJsonWithFallback({ contents });
   try {
     return parseAndValidate(response.text ?? "");
   } catch {
-    const res2 = await ai.models.generateContent({
-      model: getModelName(),
+    const res2 = await generateJsonWithFallback({
       contents:
         contents +
         `\n\nHãy sửa lại JSON cho đúng schema kind="${kind}". Chỉ trả về JSON thuần.`,
-      config: { responseMimeType: "application/json", temperature: 0.2 },
     });
     return parseAndValidate(res2.text ?? "");
   }

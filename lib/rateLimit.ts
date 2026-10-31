@@ -8,7 +8,8 @@ export async function checkRateLimit(ip: string): Promise<boolean> {
   const db = getDb();
   if (!db) return true;
 
-  const limit = Number(process.env.RATE_LIMIT_PER_MINUTE ?? "10");
+  // Default 8 — under Free Tier Flash-Lite ~15 RPM so demo traffic rarely trips Gemini 429
+  const limit = Number(process.env.RATE_LIMIT_PER_MINUTE ?? "8");
   if (!Number.isFinite(limit) || limit <= 0) return true;
 
   const minuteMs = 60_000;
