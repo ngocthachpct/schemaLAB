@@ -1,0 +1,452 @@
+{
+  "hcl+naoh": {
+    "has_reaction": true,
+    "reaction_type": "trung_hoa",
+    "equation": "HCl + NaOH → NaCl + H2O",
+    "ionic_equation": "H⁺ + OH⁻ → H2O",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "exothermic"
+    },
+    "explanation": "Axit clohiđric giải phóng ion H⁺ còn bazơ NaOH giải phóng ion OH⁻. Ion H⁺ kết hợp với ion OH⁻ tạo thành nước, phản ứng toả nhiệt nên được gọi là phản ứng trung hoà.",
+    "safety_note": "Ngoài đời thật, axit và bazơ ăn da. Luôn đeo kính và găng tay.",
+    "quiz": {
+      "question": "Phản ứng giữa axit và bazơ tạo thành muối và nước gọi là phản ứng gì?",
+      "options": ["Phản ứng trung hoà", "Phản ứng thế", "Phản ứng phân huỷ"],
+      "correct_index": 0,
+      "explanation": "Axit + Bazơ → Muối + Nước là phản ứng trung hoà, thường toả nhiệt."
+    }
+  },
+  "h2so4+naoh": {
+    "has_reaction": true,
+    "reaction_type": "trung_hoa",
+    "equation": "H2SO4 + 2NaOH → Na2SO4 + 2H2O",
+    "ionic_equation": "2H⁺ + 2OH⁻ → 2H2O",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "exothermic"
+    },
+    "explanation": "Ion H⁺ từ axit sunfuric kết hợp với ion OH⁻ từ bazơ NaOH tạo thành nước. Dung dịch sau phản ứng chứa muối Na2SO4 và toả nhiệt nhẹ.",
+    "safety_note": "Ngoài đời thật, axit và bazơ ăn da. Luôn đeo kính và găng tay.",
+    "quiz": {
+      "question": "Cần bao nhiêu phân tử NaOH để trung hoà hết 1 phân tử H2SO4?",
+      "options": ["1 phân tử", "2 phân tử", "3 phân tử"],
+      "correct_index": 1,
+      "explanation": "H2SO4 giải phóng 2 ion H⁺ nên cần 2 ion OH⁻, tức là 2 phân tử NaOH."
+    }
+  },
+  "cuso4+naoh": {
+    "has_reaction": true,
+    "reaction_type": "trao_doi",
+    "equation": "CuSO4 + 2NaOH → Cu(OH)2↓ + Na2SO4",
+    "ionic_equation": "Cu²⁺ + 2OH⁻ → Cu(OH)2↓",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": true,
+      "precipitate_color": "#3b82f6",
+      "heat_level": "normal"
+    },
+    "explanation": "Ion Cu²⁺ màu xanh gặp ion OH⁻ tạo thành kết tủa Cu(OH)2 màu xanh lam không tan trong nước. Cặp ion còn lại Na⁺ và SO4²⁻ vẫn hòa tan tạo muối Na2SO4.",
+    "safety_note": "Ngoài đời thật, bazơ có ăn da. Luôn đeo kính và găng tay.",
+    "quiz": {
+      "question": "Vì sao xuất hiện kết tủa màu xanh lam?",
+      "options": [
+        "Vì Cu(OH)2 không tan trong nước",
+        "Vì Na2SO4 kết thành rắn",
+        "Vì NaOH đổi màu xanh"
+      ],
+      "correct_index": 0,
+      "explanation": "Cu(OH)2 là bazơ không tan nên lắng xuống thành kết tủa xanh lam đặc trưng."
+    }
+  },
+  "bacl2+h2so4": {
+    "has_reaction": true,
+    "reaction_type": "trao_doi",
+    "equation": "BaCl2 + H2SO4 → BaSO4↓ + 2HCl",
+    "ionic_equation": "Ba²⁺ + SO4²⁻ → BaSO4↓",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": true,
+      "precipitate_color": "#f8fafc",
+      "heat_level": "normal"
+    },
+    "explanation": "Ion Ba²⁺ kết hợp với ion SO4²⁻ tạo thành kết tủa BaSO4 màu trắng, rất khó tan ngay cả trong axit. Đây là dấu hiệu nhận biết ion SO4²⁻ của dung dịch axit sunfuric.",
+    "safety_note": "Ngoài đời thật, hợp chất bari độc nếu nuốt phải. Tuyệt đối không ăn bất kỳ thứ gì trong phòng thí nghiệm.",
+    "quiz": {
+      "question": "Kết tủa màu trắng bất tan trong axit được tạo thành là chất gì?",
+      "options": ["BaSO4", "BaCO3", "Ba(OH)2"],
+      "correct_index": 0,
+      "explanation": "BaSO4 không tan trong nước và không tan trong axit, nên được dùng để nhận biết ion SO4²⁻."
+    }
+  },
+  "hcl+na2co3": {
+    "has_reaction": true,
+    "reaction_type": "trao_doi",
+    "equation": "Na2CO3 + 2HCl → 2NaCl + CO2↑ + H2O",
+    "ionic_equation": "CO3²⁻ + 2H⁺ → CO2↑ + H2O",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": true,
+      "gas_color": "#ffffff",
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "normal"
+    },
+    "explanation": "Ion CO3²⁻ gặp ion H⁺ tạo thành axit cacbonic không bền, phân huỷ ngay thành CO2 bay lên và nước. Hiện tượng sủi bọt chính là khí CO2 đang thoát ra.",
+    "safety_note": "Ngoài đời thật, axit ăn da. Luôn đeo kính và găng tay khi làm thí nghiệm với axit.",
+    "quiz": {
+      "question": "Khí sủi bọt thoát ra là gì? Dùng vôi trong có làm đục không?",
+      "options": ["CO2, làm đục nước vôi trong", "O2, làm đục nước vôi trong", "H2, cho ngọn lửa xanh"],
+      "correct_index": 0,
+      "explanation": "CO2 tác dụng với nước vôi trong Ca(OH)2 tạo CaCO3 kết tủa nên làm đục dung dịch."
+    }
+  },
+  "h2so4+na2co3": {
+    "has_reaction": true,
+    "reaction_type": "trao_doi",
+    "equation": "Na2CO3 + H2SO4 → Na2SO4 + CO2↑ + H2O",
+    "ionic_equation": "CO3²⁻ + 2H⁺ → CO2↑ + H2O",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": true,
+      "gas_color": "#ffffff",
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "normal"
+    },
+    "explanation": "Axit sunfuric thế ion Na⁺ trong muối cacbonat, tạo thành Na2SO4 hòa tan. Ion CO3²⁻ bị chuyển thành khí CO2 sủi bọt mạnh.",
+    "safety_note": "Ngoài đời thật, axit ăn da. Luôn đeo kính và găng tay khi làm thí nghiệm với axit.",
+    "quiz": {
+      "question": "Ion nào là nguyên nhân xuất hiện bọt khí khi trộn hai dung dịch?",
+      "options": ["CO3²⁻ gặp H⁺", "Na⁺ gặp SO4²⁻", "Na⁺ gặp CO3²⁻"],
+      "correct_index": 0,
+      "explanation": "Ion cacbonat bị axit phá vỡ thành CO2 thoát ra ngoài, nên sủi bọt."
+    }
+  },
+  "agno3+nacl": {
+    "has_reaction": true,
+    "reaction_type": "trao_doi",
+    "equation": "AgNO3 + NaCl → AgCl↓ + NaNO3",
+    "ionic_equation": "Ag⁺ + Cl⁻ → AgCl↓",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": true,
+      "precipitate_color": "#f1f5f9",
+      "heat_level": "normal"
+    },
+    "explanation": "Ion Ag⁺ gặp ion Cl⁻ tạo thành kết tủa AgCl màu trắng, không tan trong nước lẫn axit loãng. Phản ứng này dùng để nhận biết muối clorua (có Cl⁻).",
+    "safety_note": "Dung dịch AgNO3 có thể để lại vết đen trên da ở ngoài đời thật, hãy hạn chế chạm tay.",
+    "quiz": {
+      "question": "Kết tủa màu trắng tạo từ ion Ag⁺ và ion Cl⁻ là chất nào?",
+      "options": ["AgCl", "AgNO3", "AgOH"],
+      "correct_index": 0,
+      "explanation": "AgCl là kết tủa trắng khó tan, dùng để nhận biết ion Cl⁻ trong dung dịch muối clorua."
+    }
+  },
+  "agno3+hcl": {
+    "has_reaction": true,
+    "reaction_type": "trao_doi",
+    "equation": "AgNO3 + HCl → AgCl↓ + HNO3",
+    "ionic_equation": "Ag⁺ + Cl⁻ → AgCl↓",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": true,
+      "precipitate_color": "#f1f5f9",
+      "heat_level": "normal"
+    },
+    "explanation": "Ion Ag⁺ của AgNO3 kết hợp với ion Cl⁻ của axit HCl tạo kết tủa AgCl trắng. Cặp ion H⁺ và NO3⁻ giữ lại thành axit nitric còn hòa tan.",
+    "safety_note": "Ngoài đời thật, cả axit HCl lẫn AgNO3 đều nguy hiểm với da và mắt. Đeo kín kính và găng tay.",
+    "quiz": {
+      "question": "Vì sao dung dịch đục trắng khi vừa trộn hai chất?",
+      "options": ["AgCl kết tủa", "Nước phân huỷ", "HNO3 bay hơi"],
+      "correct_index": 0,
+      "explanation": "AgCl kết tủa màu trắng dưới dạng hạt mịn khiến dung dịch đục lên."
+    }
+  },
+  "fecl3+naoh": {
+    "has_reaction": true,
+    "reaction_type": "trao_doi",
+    "equation": "FeCl3 + 3NaOH → Fe(OH)3↓ + 3NaCl",
+    "ionic_equation": "Fe³⁺ + 3OH⁻ → Fe(OH)3↓",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": true,
+      "precipitate_color": "#92400e",
+      "heat_level": "normal"
+    },
+    "explanation": "Ion Fe³⁺ màu vàng gặp ion OH⁻ tạo kết tủa Fe(OH)3 màu nâu đỏ không tan. Cặp ion còn lại Na⁺ và Cl⁻ ở lại trong dung dịch thành muối NaCl.",
+    "safety_note": "Ngoài đời thật, bazơ có ăn da. Luôn đeo kính và găng tay.",
+    "quiz": {
+      "question": "Kết tủa nâu đỏ là dấu hiệu nhận biết ion nào?",
+      "options": ["Fe³⁺", "Cu²⁺", "Ca²⁺"],
+      "correct_index": 0,
+      "explanation": "Fe(OH)3 màu nâu đỏ là sản phẩm đặc trưng khi ion Fe³⁺ gặp bazơ."
+    }
+  },
+  "bacl2+na2co3": {
+    "has_reaction": true,
+    "reaction_type": "trao_doi",
+    "equation": "BaCl2 + Na2CO3 → BaCO3↓ + 2NaCl",
+    "ionic_equation": "Ba²⁺ + CO3²⁻ → BaCO3↓",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": true,
+      "precipitate_color": "#f8fafc",
+      "heat_level": "normal"
+    },
+    "explanation": "Ion Ba²⁺ gặp ion CO3²⁻ tạo thành kết tủa BaCO3 màu trắng, không tan trong nước. Muối NaCl còn lại hòa tan trong dung dịch.",
+    "safety_note": "Ngoài đời thật, hợp chất bari độc nếu nuốt phải. Cẩn thận các hóa chất trong phòng lab.",
+    "quiz": {
+      "question": "Khi thêm HCl vào kết tủa BaCO3 sẽ xảy ra điều gì?",
+      "options": ["Tan và sủi bọt CO2", "Không hề biến đổi", "Đổi màu xanh"],
+      "correct_index": 0,
+      "explanation": "BaCO3 là muối cacbonat nên tan trong axit, giải phóng khí CO2 (khác với BaSO4 không tan)."
+    }
+  },
+  "caoh2+na2co3": {
+    "has_reaction": true,
+    "reaction_type": "trao_doi",
+    "equation": "Ca(OH)2 + Na2CO3 → CaCO3↓ + 2NaOH",
+    "ionic_equation": "Ca²⁺ + CO3²⁻ → CaCO3↓",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": true,
+      "precipitate_color": "#f8fafc",
+      "heat_level": "normal"
+    },
+    "explanation": "Ion Ca²⁺ của nước vôi trong gặp ion CO3²⁻ tạo kết tủa CaCO3 trắng. Cặp ion Na⁺ và OH⁻ còn lại chính là dung dịch NaOH mới sinh ra.",
+    "safety_note": "Nước vôi trong trong thực tế có tính ăn da nhẹ, nhớ rửa tay với nước.",
+    "quiz": {
+      "question": "Muối NaOH trong sản phẩm được sinh ra từ cặp ion nào?",
+      "options": ["Na⁺ + OH⁻", "Ca²⁺ + OH⁻", "Ca²⁺ + CO3²⁻"],
+      "correct_index": 0,
+      "explanation": "Sau khi Ca²⁺ và CO3²⁻ ra kết tủa, Na⁺ và OH⁻ kết hợp thành NaOH hòa tan."
+    }
+  },
+  "cuso4+fe": {
+    "has_reaction": true,
+    "reaction_type": "the",
+    "equation": "Fe + CuSO4 → FeSO4 + Cu↓",
+    "ionic_equation": "Fe + Cu²⁺ → Fe²⁺ + Cu↓",
+    "visual_effects": {
+      "final_liquid_color": "#bbf7d0",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": true,
+      "precipitate_color": "#b45309",
+      "heat_level": "normal"
+    },
+    "explanation": "Sắt hoạt động hơn đồng (đứng trước đồng trong dãy hoạt động hóa học) nên đẩy đồng ra khỏi muối. Kim loại Cu màu đỏ gạch bám vào lá sắt, dung dịch từ xanh chuyển sang xanh lục nhạt của FeSO4.",
+    "safety_note": null,
+    "quiz": {
+      "question": "Vì sao sắt đẩy đồng ra khỏi dung dịch CuSO4?",
+      "options": [
+        "Sắt mạnh hơn đồng trong dãy hoạt động",
+        "Dung dịch CuSO4 loãng",
+        "Sắt nặng hơn đồng"
+      ],
+      "correct_index": 0,
+      "explanation": "Kim loại đứng trước có khả năng đẩy kim loại đứng sau ra khỏi muối của nó."
+    }
+  },
+  "cuso4+zn": {
+    "has_reaction": true,
+    "reaction_type": "the",
+    "equation": "Zn + CuSO4 → ZnSO4 + Cu↓",
+    "ionic_equation": "Zn + Cu²⁺ → Zn²⁺ + Cu↓",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": true,
+      "precipitate_color": "#b45309",
+      "heat_level": "exothermic"
+    },
+    "explanation": "Kẽm hoạt động mạnh hơn đồng nên kẽm đẩy đồng ra khỏi muối. Dung dịch từ màu xanh (CuSO4) dần mất màu khi ion Cu²⁺ chuyển thành kim loại Cu đỏ gạch lắng xuống.",
+    "safety_note": null,
+    "quiz": {
+      "question": "Màu xanh của dung dịch mất dần vì điều gì?",
+      "options": ["Ion Cu²⁺ biến thành kim loại Cu", "Kẽm làm màu bẩn", "CuSO4 chuyển thành nước"],
+      "correct_index": 0,
+      "explanation": "Màu xanh của CuSO4 nhờ ion Cu²⁺; khi ion này bị thay thế thành kim loại Cu rắn, dung dịch dần mất màu."
+    }
+  },
+  "hcl+zn": {
+    "has_reaction": true,
+    "reaction_type": "the",
+    "equation": "Zn + 2HCl → ZnCl2 + H2↑",
+    "ionic_equation": "Zn + 2H⁺ → Zn²⁺ + H2↑",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": true,
+      "gas_color": "#ffffff",
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "normal"
+    },
+    "explanation": "Kẽm đứng trước hiđrô trong dãy hoạt động hóa học nên đẩy hiđrô ra khỏi axit. Từng nốt bọt khí hiđrô (H2) rất nhẹ bay lên sủi quanh hạt kẽm.",
+    "safety_note": "Khí H2 dễ cháy nổ trong ngoài đời thật, tuyệt đối tránh xa lửa và tia lửa điện.",
+    "quiz": {
+      "question": "Khí thoát ra khi thả kẽm vào axit là gì?",
+      "options": ["H2", "O2", "CO2"],
+      "correct_index": 0,
+      "explanation": "Axit loãng tác dụng với kim loại đứng trước H giải phóng khí hidro (H2)."
+    }
+  },
+  "hcl+mg": {
+    "has_reaction": true,
+    "reaction_type": "the",
+    "equation": "Mg + 2HCl → MgCl2 + H2↑",
+    "ionic_equation": "Mg + 2H⁺ → Mg²⁺ + H2↑",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": true,
+      "gas_color": "#ffffff",
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "exothermic"
+    },
+    "explanation": "Magie hoạt động rất mạnh nên tan nhanh trong axit, tạo ra MgCl2 hòa tan và khí hiđrô sủi mạnh. Phản ứng toả nhiệt khiến cốc ấm lên.",
+    "safety_note": "Khí H2 dễ cháy nổ và phản ứng toả nhiệt. Tránh xa lửa, không cầm cốc yếm tay không.",
+    "quiz": {
+      "question": "Vì sao ribbons magie tan rất nhanh trong HCl?",
+      "options": ["Mg rất hoạt động, đứng trước H", "Mg nhẹ nên nổi lên", "HCl đun nóng sẵn"],
+      "correct_index": 0,
+      "explanation": "Mg đứng trước rất xa H trong dãy hoạt động hóa học nên phản ứng xảy ra dữ dội."
+    }
+  },
+  "fe+hcl": {
+    "has_reaction": true,
+    "reaction_type": "the",
+    "equation": "Fe + 2HCl → FeCl2 + H2↑",
+    "ionic_equation": "Fe + 2H⁺ → Fe²⁺ + H2↑",
+    "visual_effects": {
+      "final_liquid_color": "#bbf7d0",
+      "has_gas": true,
+      "gas_color": "#ffffff",
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "normal"
+    },
+    "explanation": "Sắt đứng trước hiđrô nên đẩy hiđrô ra khỏi axit, tạo muối FeCl2 hòa tan màu xanh lục nhạt và khí H2 sủi chậm.",
+    "safety_note": "Khí H2 dễ cháy nổ trong ngoài đời thật, tuyệt đối tránh xa lửa.",
+    "quiz": {
+      "question": "Dung dịch sau phản ứng có thêm ion nào cho màu xanh lục nhạt?",
+      "options": ["Fe²⁺", "Fe³⁺", "Cu²⁺"],
+      "correct_index": 0,
+      "explanation": "Axit loãng chỉ tạo muối sắt(II) FeCl2 với màu xanh lục nhạt của ion Fe²⁺."
+    }
+  },
+  "h2so4+mg": {
+    "has_reaction": true,
+    "reaction_type": "the",
+    "equation": "Mg + H2SO4 → MgSO4 + H2↑",
+    "ionic_equation": "Mg + 2H⁺ → Mg²⁺ + H2↑",
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": true,
+      "gas_color": "#ffffff",
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "exothermic"
+    },
+    "explanation": "Magie tấn công ion H⁺ của axit sunfuric, tạo muối MgSO4 hòa tan và khí H2. Phản ứng dữ dội và toả nhiệt, bọt khí sủi rất nhanh.",
+    "safety_note": "Khí H2 dễ cháy nổ và phản ứng toả nhiệt mạnh. Tránh xa lửa.",
+    "quiz": {
+      "question": "Ion nào chịu trách nhiệm tạo khí H2 từ cả HCl và H2SO4?",
+      "options": ["H⁺", "SO4²⁻", "Cl⁻"],
+      "correct_index": 0,
+      "explanation": "Mọi axit đều có ion H⁺ đặc trưng, đó là lý do cả hai axit đều sinh khí hiđrô."
+    }
+  },
+  "cu+hcl": {
+    "has_reaction": false,
+    "reaction_type": "khong_phan_ung",
+    "equation": "",
+    "ionic_equation": null,
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "normal"
+    },
+    "explanation": "Đồng đứng sau hiđrô trong dãy hoạt động hóa học nên không thể đẩy hiđrô ra khỏi axit loãng. Vì vậy trong cốc không có hiện tượng gì xảy ra.",
+    "safety_note": null,
+    "quiz": null
+  },
+  "cu+h2so4": {
+    "has_reaction": false,
+    "reaction_type": "khong_phan_ung",
+    "equation": "",
+    "ionic_equation": null,
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "normal"
+    },
+    "explanation": "Axit sunfuric loãng không có tính ôxi hoá mạnh, đồng đứng sau hiđrô nên không tan trong axit loãng. Không có khí hay kết tủa nào xuất hiện.",
+    "safety_note": null,
+    "quiz": null
+  },
+  "nacl+hcl": {
+    "has_reaction": false,
+    "reaction_type": "khong_phan_ung",
+    "equation": "",
+    "ionic_equation": null,
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "normal"
+    },
+    "explanation": "Hai dung dịch không tạo được kết tủa, khí hay nước mới nên không xảy ra phản ứng. Ion Na⁺, Cl⁻ vẫn tự do trong dung dịch.",
+    "safety_note": null,
+    "quiz": null
+  },
+  "nacl+naoh": {
+    "has_reaction": false,
+    "reaction_type": "khong_phan_ung",
+    "equation": "",
+    "ionic_equation": null,
+    "visual_effects": {
+      "final_liquid_color": "#e0f2fe",
+      "has_gas": false,
+      "gas_color": null,
+      "has_precipitate": false,
+      "precipitate_color": null,
+      "heat_level": "normal"
+    },
+    "explanation": "Muối NaCl và bazơ NaOH có ion chung là Na⁺ nên không phản ứng với nhau. Dung dịch chỉ trộn màu bình thường.",
+    "safety_note": null,
+    "quiz": null
+  }
+}

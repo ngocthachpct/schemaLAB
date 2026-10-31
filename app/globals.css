@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+/* ====== ChemLab Retro × Illustration design tokens ====== */
+@theme inline {
+  --color-paper: #faf3e3;
+  --color-paper-deep: #f0e3c8;
+  --color-ink: #2f2a26;
+  --color-ink-soft: #6b655c;
+  --color-terracotta: #e07a5f;
+  --color-coral: #f4a261;
+  --color-mustard: #f2c14e;
+  --color-teal: #3f9e8d;
+  --color-teal-soft: #d9efe7;
+  --color-lilac: #e5dcef;
+  --font-display: var(--font-baloo), ui-rounded, system-ui, sans-serif;
+  --font-body: var(--font-bevietnam), ui-sans-serif, system-ui, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ====== Retro surface & shape utilities (component layer so bg-* can override) ====== */
+@layer components {
+  .paper-bg {
+    background-color: var(--color-paper);
+    background-image: radial-gradient(rgba(47, 42, 38, 0.075) 1.2px, transparent 1.3px);
+    background-size: 20px 20px;
+  }
+
+  .card-sticker {
+    background: #fffdf6;
+    border: 2.5px solid var(--color-ink);
+    border-radius: 1.25rem;
+    box-shadow: 5px 5px 0 0 var(--color-ink);
+  }
+
+  .sticker-flat {
+    background: #fffdf6;
+    border: 2.5px solid var(--color-ink);
+    border-radius: 0.9rem;
+    box-shadow: 3px 3px 0 0 var(--color-ink);
+  }
+
+  .sticker-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2.5px solid var(--color-ink);
+    border-radius: 0.8rem;
+    box-shadow: 3px 3px 0 0 var(--color-ink);
+    font-weight: 700;
+    transition: transform 80ms ease, box-shadow 80ms ease, background-color 120ms ease;
+    cursor: pointer;
+  }
+  .sticker-btn:hover:not(:disabled) {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 0 var(--color-ink);
+  }
+  .sticker-btn:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 0 var(--color-ink);
+  }
+  .sticker-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: 3px 3px 0 0 rgba(47, 42, 38, 0.5);
+  }
+
+  .sticker-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 2px solid var(--color-ink);
+    border-radius: 999px;
+    box-shadow: 2.5px 2.5px 0 0 var(--color-ink);
+    font-weight: 700;
+  }
+
+  /* Illustration helpers */
+  .rot-neg {
+    transform: rotate(-2deg);
+  }
+  .rot-pos {
+    transform: rotate(2deg);
+  }
+
+  .wavy-underline {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--color-terracotta);
+  }
+
+  /* Dashed "polaroid" frame */
+  .dashed-frame {
+    border: 2.5px dashed var(--color-ink-soft);
+    border-radius: 0.9rem;
+    background: transparent;
+    box-shadow: 3px 3px 0 0 rgba(47, 42, 38, 0.25);
+  }
+}
+
+/* ====== Keyframes for lab effects (only animate transform/opacity) ====== */
+
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes precipitate-fall {
+  0% {
+    transform: translateY(-24px) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes smoke-rise {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-70px) scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes metal-drop {
+  0% {
+    transform: translateY(-70px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(0);
+  }
+  85% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Sparkle twinkle for decoration */
+@keyframes twinkle {
+  0%,
+  100% {
+    transform: scale(0.85) rotate(-8deg);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.1) rotate(10deg);
+    opacity: 1;
+  }
+}
+
+/* Wave loading letters (sticker UI) */
+@keyframes chemlab-wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-0.42em);
+  }
+  60% {
+    transform: translateY(0.08em);
+  }
+}
+
+.chemlab-wave-char {
+  animation-name: chemlab-wave;
+  animation-duration: 1.05s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+/* Particle helpers — use CSS vars so SSR/client hydration matches (no inline animation shorthand) */
+.chemlab-bubble {
+  animation-name: bubble-rise;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-duration: var(--chemlab-dur, 1.4s);
+  animation-delay: var(--chemlab-delay, 0s);
+}
+
+.chemlab-precipitate {
+  animation-name: precipitate-fall;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-delay: var(--chemlab-delay, 0s);
+}
+
+.chemlab-smoke {
+  animation-name: smoke-rise;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-duration: var(--chemlab-dur, 2.4s);
+  animation-delay: var(--chemlab-delay, 0s);
+}
+
+/* Respect users who prefer reduced motion: kill looping animations */
+@media (prefers-reduced-motion: reduce) {
+  .chemlab-loop,
+  .chemlab-bubble,
+  .chemlab-smoke {
+    animation: none !important;
+  }
+  .chemlab-precipitate {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .chemlab-twinkle {
+    animation: none !important;
+  }
+  .chemlab-wave-char {
+    animation: none !important;
+  }
+}

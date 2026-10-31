@@ -1,0 +1,21 @@
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Secrets & local env (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.key
+credentials.json
+service-account*.json
+**/secrets/
+
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+Thumbs.db
